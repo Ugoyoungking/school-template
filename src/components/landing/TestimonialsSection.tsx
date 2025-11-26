@@ -1,11 +1,13 @@
-import { generateTestimonials } from '@/ai/flows/generate-dynamic-testimonials';
 import { TestimonialCarousel } from './TestimonialCarousel';
 
-export async function TestimonialsSection() {
-  const { testimonials } = await generateTestimonials({
-    schoolName: 'Springfield High School',
-    numberOfTestimonials: 5,
-  });
+export function TestimonialsSection() {
+  const testimonials = [
+    "The supportive environment at Springfield High has helped my child thrive academically and socially.",
+    "We are so impressed with the dedicated teachers and the engaging curriculum at Springfield High.",
+    "Springfield High has exceeded our expectations in providing a well-rounded education for our children.",
+    "My daughter loves the extracurricular activities, especially the science club and the art classes.",
+    "The communication between parents and teachers is excellent. We always feel informed and involved."
+  ];
 
   return (
     <section id="testimonials" className="py-12 md:py-24 bg-card">
