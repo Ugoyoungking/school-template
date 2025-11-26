@@ -1,6 +1,7 @@
 'use server';
 
 import { z } from 'zod';
+import { chat, ChatInput } from '@/ai/flows/chat';
 
 const formSchema = z.object({
   name: z.string(),
@@ -53,6 +54,24 @@ export async function submitContactForm(
     }
     return {
       error: 'An unknown error occurred.',
+    };
+  }
+}
+
+export async function submitChatMessage(
+  values: ChatInput
+): Promise<{ reply: string } | { error: string }> {
+  try {
+    const reply = await chat(values);
+    return { reply };
+  } catch (e) {
+    if (e instanceof Error) {
+      return {
+        error: e.message,
+      };
+    }
+    return {
+      error: 'An unknown error occurred while processing your message.',
     };
   }
 }

@@ -1,5 +1,5 @@
 'use client';
-import { School } from 'lucide-react';
+import { School, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -31,6 +31,12 @@ export function Header() {
           <span className="font-headline">CampusConnect</span>
         </Link>
         <nav className="flex items-center gap-4">
+          <Link href="/chat">
+            <Button variant="outline">
+              <Bot className="mr-2" />
+              AI Chat
+            </Button>
+          </Link>
           <Link href="#contact">
             <Button>Request a Free Demo</Button>
           </Link>
